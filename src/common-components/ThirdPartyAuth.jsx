@@ -41,45 +41,39 @@ const ThirdPartyAuth = (props) => {
 
   return (
     <>
-      {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && (
+      {/* {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && (
         <div className="mt-4 mb-3 h4">
           {isLoginPage
             ? formatMessage(messages['login.other.options.heading'])
             : formatMessage(messages['registration.other.options.heading'])}
         </div>
-      )}
-      {(isLoginPage && !isEnterpriseLoginDisabled && isSocialAuthActive) && (
+      )} */}
+      {isLoginPage && !isEnterpriseLoginDisabled && isSocialAuthActive && (
         <Hyperlink
           className={classNames(
             'btn btn-link btn-sm text-body p-0',
             { 'mb-0': thirdPartyAuthApiStatus === PENDING_STATE },
-            { 'mb-4': thirdPartyAuthApiStatus !== PENDING_STATE },
+            { 'mb-4': thirdPartyAuthApiStatus !== PENDING_STATE }
           )}
           destination={enterpriseLoginURL}
         >
-          <Icon src={Institution} className="institute-icon" />
+          <Icon src={Institution} className='institute-icon' />
           {formatMessage(messages['enterprise.login.btn.text'])}
         </Hyperlink>
       )}
 
       {thirdPartyAuthApiStatus === PENDING_STATE && isThirdPartyAuthActive ? (
-        <div className="mt-4">
-          <Skeleton className="tpa-skeleton" height={36} count={2} />
+        <div className='mt-4'>
+          <Skeleton className='tpa-skeleton' height={36} count={2} />
         </div>
       ) : (
         <>
-          {(isEnterpriseLoginDisabled && isInstitutionAuthActive) && (
-            <RenderInstitutionButton
-              onSubmitHandler={handleInstitutionLogin}
-              buttonTitle={formatMessage(messages['institution.login.button'])}
-            />
+          {isEnterpriseLoginDisabled && isInstitutionAuthActive && (
+            <RenderInstitutionButton onSubmitHandler={handleInstitutionLogin} buttonTitle={formatMessage(messages['institution.login.button'])} />
           )}
           {isSocialAuthActive && (
-            <div className="row m-0">
-              <SocialAuthProviders
-                socialAuthProviders={providers}
-                referrer={isLoginPage ? LOGIN_PAGE : REGISTER_PAGE}
-              />
+            <div className='row m-0'>
+              <SocialAuthProviders socialAuthProviders={providers} referrer={isLoginPage ? LOGIN_PAGE : REGISTER_PAGE} />
             </div>
           )}
         </>

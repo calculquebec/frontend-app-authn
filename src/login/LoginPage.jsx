@@ -204,27 +204,14 @@ const LoginPage = (props) => {
       <Helmet>
         <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
       </Helmet>
-      <RedirectLogistration
-        success={loginResult.success}
-        redirectUrl={loginResult.redirectUrl}
-        finishAuthUrl={finishAuthUrl}
-      />
-      <div className="mw-xs mt-3 mb-2">
-        <LoginFailureMessage
-          errorCode={errorCode.type}
-          errorCount={errorCode.count}
-          context={errorCode.context}
-        />
-        <ThirdPartyAuthAlert
-          currentProvider={currentProvider}
-          platformName={platformName}
-        />
-        <AccountActivationMessage
-          messageType={activationMsgType}
-        />
+      <RedirectLogistration success={loginResult.success} redirectUrl={loginResult.redirectUrl} finishAuthUrl={finishAuthUrl} />
+      <div className='mw-xs mt-3 mb-2'>
+        <LoginFailureMessage errorCode={errorCode.type} errorCount={errorCode.count} context={errorCode.context} />
+        <ThirdPartyAuthAlert currentProvider={currentProvider} platformName={platformName} />
+        <AccountActivationMessage messageType={activationMsgType} />
         {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
-        <Form id="sign-in-form" name="sign-in-form">
-          <FormGroup
+        <Form id='sign-in-form' name='sign-in-form'>
+          {/* <FormGroup
             name="emailOrUsername"
             value={formFields.emailOrUsername}
             autoComplete="on"
@@ -266,7 +253,7 @@ const LoginPage = (props) => {
             onClick={trackForgotPasswordLinkClick}
           >
             {formatMessage(messages['forgot.password'])}
-          </Link>
+          </Link> */}
           <ThirdPartyAuth
             currentProvider={currentProvider}
             providers={providers}
