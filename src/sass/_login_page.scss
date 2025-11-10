@@ -1,3 +1,15 @@
 .login-button-width {
     min-width: 6rem;
 }
+
+#root .layout {
+    background: #052147 !important;
+}
+
+#root .layout:after, #root .layout:before {
+    display: none !important;
+}
+
+#root .layout .bg-primary-400 h1 .text-accent-a {
+    color: #ffffff !important;
+}
