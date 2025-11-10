@@ -28,9 +28,9 @@ const MediumLayout = () => {
                 )}
               >
                 <span>
-                  {formatMessage(messages['start.learning'])}{' '}
+                  <Image src="https://raw.githubusercontent.com/calculquebec/frontend-app-authn/refs/heads/dev/src/base-container/components/default-layout/image_page_connexion.png"  alt="Evolo logo" />
                   <span className="text-accent-a d-inline-block">
-                    {formatMessage(messages['with.site.name'], { siteName: getConfig().SITE_NAME })}
+                    La plateforme de formation de Calcul Québec, medium
                   </span>
                 </span>
               </h1>
