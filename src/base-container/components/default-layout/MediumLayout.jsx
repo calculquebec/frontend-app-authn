@@ -30,7 +30,7 @@ const MediumLayout = () => {
                 <span>
                   <Image src="https://raw.githubusercontent.com/calculquebec/frontend-app-authn/refs/heads/dev/src/base-container/components/default-layout/image_page_connexion.png"  alt="Evolo logo" />
                   <span className="text-accent-a d-inline-block">
-                    La plateforme de formation de Calcul Québec, medium
+                    La plateforme de formation de Calcul Québec
                   </span>
                 </span>
               </h1>
