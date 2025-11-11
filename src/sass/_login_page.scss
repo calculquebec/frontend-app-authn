@@ -6,10 +6,30 @@
     background: #052147 !important;
 }
 
-#root .layout:after, #root .layout:before {
+#root .layout:before {
     display: none !important;
 }
 
 #root .layout .bg-primary-400 h1 .text-accent-a {
     color: #ffffff !important;
+    font-family: 'Open Sans' !important;
+}
+#root .layout .bg-primary-400 h1 img {
+    width: 95%;
+}
+
+#root .layout .content .div-logo-cq {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 2vh;
+}
+#root .layout .content .div-logo-cq img {
+    width: 50%;
+    max-width: 300px;
+    min-width: 100px;
+}
+
+.btn-social {
+    width: 100% !important;
 }
