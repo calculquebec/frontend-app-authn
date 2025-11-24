@@ -21,7 +21,7 @@ const LargeLayout = () => {
               { 'ml-6': getSiteConfig().siteName !== 'edX' },
             )}
           >
-            <Image src="https://raw.githubusercontent.com/calculquebec/frontend-app-authn/refs/heads/cq/verawood-app.dev/src/base-container/components/default-layout/image_page_connexion.png"  alt="Evolo logo" />
+            <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/image_page_connexion.png"  alt="Evolo logo" />
             <div className="text-accent-a">
               La plateforme de formation de Calcul Québec
             </div>

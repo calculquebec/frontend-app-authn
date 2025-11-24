@@ -25,7 +25,7 @@ const MediumLayout = () => {
                 )}
               >
                 <span>
-                  <Image src="https://raw.githubusercontent.com/calculquebec/frontend-app-authn/refs/heads/cq/verawood-app.dev/src/base-container/components/default-layout/image_page_connexion.png"  alt="Evolo logo" />
+                  <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/image_page_connexion.png"  alt="Evolo logo" />
                   <span className="text-accent-a d-inline-block">
                     La plateforme de formation de Calcul Québec
                   </span>
