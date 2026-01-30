@@ -25,9 +25,9 @@ const SmallLayout = () => {
             )}
           >
             <span>
-              {formatMessage(messages['start.learning'])}{' '}
+              <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/image_page_connexion.png"  alt="Evolo logo" />
               <span className="text-accent-a d-inline-block">
-                {formatMessage(messages['with.site.name'], { siteName: getConfig().SITE_NAME })}
+                La plateforme de formation de Calcul Québec
               </span>
             </span>
           </h1>

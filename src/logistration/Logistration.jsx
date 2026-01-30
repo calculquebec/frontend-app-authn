@@ -9,6 +9,7 @@ import {
   Icon,
   Tab,
   Tabs,
+  Image,
 } from '@openedx/paragon';
 import { ChevronLeft } from '@openedx/paragon/icons';
 import PropTypes from 'prop-types';
@@ -166,6 +167,9 @@ const Logistration = ({
               </div>
             </div>
           )}
+      </div>
+      <div id="logo-cq" className="div-logo-cq">
+        <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/CalculQuebec_logo_medium.png" alt="Calcul Québec logo" />
       </div>
     </BaseContainer>
   );

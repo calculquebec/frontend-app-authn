@@ -24,9 +24,9 @@ const LargeLayout = () => {
               { 'ml-6': getConfig().SITE_NAME !== 'edX' },
             )}
           >
-            {formatMessage(messages['start.learning'])}
+            <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/image_page_connexion.png"  alt="Evolo logo" />
             <div className="text-accent-a">
-              {formatMessage(messages['with.site.name'], { siteName: getConfig().SITE_NAME })}
+              La plateforme de formation de Calcul Québec
             </div>
           </h1>
         </div>
