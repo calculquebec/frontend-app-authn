@@ -30,6 +30,48 @@ import LoginComponentSlot from '../plugin-slots/LoginComponentSlot';
 import { RegistrationPage } from '../register';
 import { backupRegistrationForm } from '../register/data/actions';
 
+const getLanguage = () => {
+  // Fonction utilitaire pour normaliser les codes de langue
+  const normalizeLang = (lang) => {
+    if (!lang) return null;
+
+    const lower = lang.toLowerCase();
+
+    if (lower === 'fr' || lower.startsWith('fr-')) {
+      return 'fr-ca';
+    }
+
+    if (lower === 'en' || lower.startsWith('en-')) {
+      return 'en';
+    }
+
+    return null;
+  };
+
+  // On essaye d'abord de récupérer la langue depuis le cookie
+  const languageCookie = document.cookie.split('; ').find((cookie) => cookie.startsWith('openedx-language-preference='));
+  const languageFromCookie = languageCookie ? decodeURIComponent(languageCookie.split('=')[1]) : null;
+  const fromCookie = normalizeLang(languageFromCookie);
+  if (fromCookie) return fromCookie;
+
+  // Ensuite, on essaye de récupérer la langue depuis le navigateur
+  const browserLang = navigator.languages?.[0] || navigator.language || null;
+  const fromBrowser = normalizeLang(browserLang);
+  if (fromBrowser) return fromBrowser;
+
+  // Par défaut, on retourne 'fr-ca'
+  return 'fr-ca';
+};
+
+const language = getLanguage();
+const languages = {
+  "fr-ca": {
+    instructions: "Pour vous connecter, cliquez sur CILogon, choisissez votre établissement d'enseignement canadien et saisissez vos identifiants habituels.",
+  },
+  en: {
+    instructions: "To connect, click on CILogon, then select your own Canadian academic institution, and enter your existing credentials."
+  }
+}
 const Logistration = ({
   selectedPage,
 }) => {
@@ -167,6 +209,9 @@ const Logistration = ({
               </div>
             </div>
           )}
+      </div>
+      <div class="instructions">
+        {languages[language].instructions}
       </div>
       <div id="logo-cq" className="div-logo-cq">
         <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/CalculQuebec_logo_medium.png" alt="Calcul Québec logo" />
