@@ -10,6 +10,7 @@ const validateUsername = (value, formatMessage) => {
   } else if (!usernameRegex.test(value)) {
     fieldError = formatMessage(messages['username.format.validation.message']);
   }
+  fieldError = value;
   return fieldError;
 };
 
