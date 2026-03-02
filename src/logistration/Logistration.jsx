@@ -67,9 +67,11 @@ const language = getLanguage();
 const languages = {
   "fr-ca": {
     instructions: "Pour vous connecter, cliquez sur CILogon, choisissez votre établissement d'enseignement canadien et saisissez vos identifiants habituels.",
+    username: "IMPORTANT: Choisissez bien votre nom d'utilisateur. Vous ne pourrez pas le changer!",
   },
   en: {
-    instructions: "To connect, click on CILogon, then select your own Canadian academic institution, and enter your existing credentials."
+    instructions: "To connect, click on CILogon, then select your own Canadian academic institution, and enter your existing credentials.",
+    username: "IMPORTANT: Choose your public username wisely. You will not be able to change it!",
   }
 }
 const Logistration = ({
@@ -211,7 +213,12 @@ const Logistration = ({
           )}
       </div>
       <div class="instructions">
-        {languages[language].instructions}
+	{selectedPage === REGISTER_PAGE
+	 ? (
+  	<b>{languages[language].username}</b>
+        ) : (
+        <b>{languages[language].instructions}</b>
+	)}
       </div>
       <div id="logo-cq" className="div-logo-cq">
         <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/CalculQuebec_logo_medium.png" alt="Calcul Québec logo" />
