@@ -206,7 +206,7 @@ const LogistrationPageInner = ({
           )}
       </div>
       <div class="instructions">
-	{selectedPage === REGISTER_PAGE
+	{selectedPage === registerPath
 	 ? (
   	<b>{languages[language].username}</b>
         ) : (
