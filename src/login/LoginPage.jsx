@@ -262,7 +262,7 @@ const LoginPage = ({
         />
         {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
         <Form id="sign-in-form" name="sign-in-form">
-          <FormGroup
+	  {/* <FormGroup
             name="emailOrUsername"
             value={formFields.emailOrUsername}
             autoComplete="on"
@@ -304,7 +304,7 @@ const LoginPage = ({
             onClick={trackForgotPasswordLinkClick}
           >
             {formatMessage(messages['forgot.password'])}
-          </Link>
+          </Link> */}
           <ThirdPartyAuth
             currentProvider={currentProvider}
             providers={providers}
