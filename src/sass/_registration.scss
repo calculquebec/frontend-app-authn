@@ -5,7 +5,7 @@
 }
 
 .pgn__form-autosuggest__wrapper>.pgn__form-group {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 .email-suggestion-alert-error {
@@ -25,21 +25,21 @@
   }
 
   .alert-link  {
-    color: var(--pgn-color-primary-base) !important;
+    color: var(--pgn-color-primary-base);
 
     &:hover {
       text-decoration: underline;
-      color: var(--pgn-color-info-700) !important;
+      color: var(--pgn-color-info-700);
     }
   }
 }
 
 .email-suggestion-alert-warning {
-  color: var(--pgn-color-info-500) !important;
+  color: var(--pgn-color-info-500);
 
   &:hover {
     text-decoration: underline;
-    color: var(--pgn-color-info-700) !important;
+    color: var(--pgn-color-info-700);
   }
 }
 
@@ -93,7 +93,7 @@
 
 @media (max-width: 372px) {
   .username-scroll-suggested--form-field {
-    width: 11rem !important;
+    width: 11rem;
   }
 
   .username-suggestions__close__button {
@@ -112,7 +112,7 @@
 }
 
 .form-field-error {
-  border: 1px solid var(--danger-300, #CA3A2F) !important;
+  border: 1px solid var(--danger-300, #CA3A2F);
 
   input {
     border: none;

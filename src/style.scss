@@ -42,12 +42,12 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 .main-content {
-  padding-top: var(--pgn-spacing-spacer-4) !important;
-  min-width: 464px !important;
+  padding-top: var(--pgn-spacing-spacer-4);
+  min-width: 464px;
 }
 
 .welcome-page-content {
-  min-width: 464px !important;
+  min-width: 464px;
 }
 
 .stateful-button-width {
@@ -68,8 +68,8 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 .close {
-  padding-bottom: 0px !important;
-  padding-top: 3px !important;
+  padding-bottom: 0px;
+  padding-top: 3px;
 }
 
 .focus-out {
@@ -82,15 +82,15 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 .alert-link {
   font-weight: normal;
   text-decoration: underline;
-  color: var(--pgn-color-info-300) !important;
+  color: var(--pgn-color-info-300);
 
   &:hover {
-    color: var(--pgn-color-info-500) !important;
+    color: var(--pgn-color-info-500);
   }
 }
 
 .form-control {
-  background-color: var(--pgn-color-white) !important;
+  background-color: var(--pgn-color-white);
   font-size: 0.875rem;
   line-height: 1.5;
   height: 2.75rem;
@@ -216,8 +216,8 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 .institute-icon {
-  margin: var(--pgn-spacing-spacer-1) !important;
-  color: var(--pgn-color-gray-base) !important;
+  margin: var(--pgn-spacing-spacer-1);
+  color: var(--pgn-color-gray-base);
   display: inline-block;
   margin-bottom: 0.25rem;
   height: 18px;
@@ -245,7 +245,7 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 select.form-control {
-  background: none !important;
+  background: none;
 }
 
 #honor-code p {
@@ -258,7 +258,7 @@ select.form-control {
 }
 
 .font-weight-500 {
-  font-weight: 500 !important;
+  font-weight: 500;
 }
 
 .mw-420 {
@@ -291,9 +291,9 @@ select.form-control {
 
 #password-requirement-left {
   opacity: 1;
-  font-size: var(--pgn-typography-font-size-xs) !important;
-  filter: drop-shadow($elevation-level-2-shadow) drop-shadow($elevation-level-2-shadow) !important;
-  right: 0.2rem !important;
+  font-size: var(--pgn-typography-font-size-xs);
+  filter: drop-shadow($elevation-level-2-shadow) drop-shadow($elevation-level-2-shadow);
+  right: 0.2rem;
 
   .tooltip-inner {
     background: var(--pgn-color-white);
@@ -307,16 +307,16 @@ select.form-control {
 }
 
 #password-requirement-top {
-  font-size: var(--pgn-typography-font-size-xs) !important;
-  filter: drop-shadow(var(--pgn-elevation-box-shadow-level-2)) drop-shadow(var(--pgn-elevation-box-shadow-level-2)) !important;
+  font-size: var(--pgn-typography-font-size-xs);
+  filter: drop-shadow(var(--pgn-elevation-box-shadow-level-2)) drop-shadow(var(--pgn-elevation-box-shadow-level-2));
   opacity: 1;
   width: 90%;
-  bottom: 10px !important;
+  bottom: 10px;
   display: flex;
   justify-content: center;
 
   .tooltip-inner {
-    min-width: 464px !important;
+    min-width: 464px;
     background: var(--pgn-color-white);
     display: block;
     color: var(--pgn-color-gray-500);
@@ -383,7 +383,7 @@ select.form-control {
 }
 
 .form-text-size {
-  margin-top: 0.188rem !important;
+  margin-top: 0.188rem;
   line-height: 1.25rem;
 }
 
@@ -406,14 +406,14 @@ select.form-control {
   }
 
   .tpa-skeleton {
-    min-width: 464px !important;
+    min-width: 464px;
   }
 }
 
 
 @media (max-width: 767px) {
   .welcome-page-content {
-    padding-top: 1.5rem !important;
+    padding-top: 1.5rem;
   }
 }
 
@@ -429,13 +429,13 @@ select.form-control {
   .btn-social {
     min-width: 100%;
     margin-bottom: 0.75rem;
-    margin-right: 0 !important;
+    margin-right: 0;
   }
 
   .welcome-page-content,
   .main-content {
-    min-width: 100vw !important;
-    padding: 1.5rem !important;
+    min-width: 100vw;
+    padding: 1.5rem;
   }
 
   #password-requirement-top {
@@ -443,7 +443,7 @@ select.form-control {
 
     .tooltip-inner {
       max-width: inherit;
-      min-width: unset !important;
+      min-width: unset;
     }
   }
 }
@@ -460,5 +460,5 @@ select.form-control {
 }
 
 .pgn__form-control-decorator-trailing {
-  right: 0 !important;
+  right: 0;
 }
