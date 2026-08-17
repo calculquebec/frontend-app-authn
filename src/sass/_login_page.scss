@@ -3,16 +3,16 @@
 }
 
 #root .layout {
-    background: #052147 !important;
+    background: #052147;
 }
 
 #root .layout:before {
-    display: none !important;
+    display: none;
 }
 
 #root .layout .bg-primary-400 h1 .text-accent-a {
-    color: #ffffff !important;
-    font-family: 'Open Sans' !important;
+    color: #ffffff;
+    font-family: 'Open Sans';
 }
 #root .layout .bg-primary-400 h1 img {
     width: 95%;
@@ -31,5 +31,5 @@
 }
 
 .btn-social {
-    width: 100% !important;
+    width: 100%;
 }
