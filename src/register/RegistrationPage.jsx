@@ -158,7 +158,7 @@ const RegistrationPage = (props) => {
         setFormFields(prevState => ({
           ...prevState, name, username, email,
         }));
-        handleOnChange({ target: { name: 'username', value: '' } }); //setFormFields(prevState => ({ ...prevState, 'username': '' }));
+//        handleOnChange({ target: { name: 'username', value: '' } }); //setFormFields(prevState => ({ ...prevState, 'username': '' }));
         setUserPipelineDataLoaded(true);
       }
     }
