@@ -154,11 +154,11 @@ const RegistrationPage = (props) => {
         setErrorCode(prevState => ({ type: TPA_AUTHENTICATION_FAILURE, count: prevState.count + 1 }));
       }
       if (pipelineUserDetails && Object.keys(pipelineUserDetails).length !== 0) {
+	pipelineUserDetails.username = '';
         const { name = '', username = '', email = '' } = pipelineUserDetails;
         setFormFields(prevState => ({
           ...prevState, name, username, email,
         }));
-//        handleOnChange({ target: { name: 'username', value: '' } }); //setFormFields(prevState => ({ ...prevState, 'username': '' }));
         setUserPipelineDataLoaded(true);
       }
     }
