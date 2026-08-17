@@ -214,7 +214,8 @@ const LogistrationPageInner = ({
 	)}
       </div>
       <div id="logo-cq" className="div-logo-cq">
-        <Image src="https://raw.githubusercontent.com/calculquebec/tutor-indigo/calculquebec/tutorindigo/templates/indigo/lms/static/images/CalculQuebec_logo_medium.png" alt="Calcul Québec logo" />
+        <Image src="https://edx.evolo.calculquebec.cloud/asset-v1:CQ+Assets101+2026+type@asset+block@CalculQuebec_logo_medium.png" 
+	  alt="Calcul Québec logo" />
       </div>
     </BaseContainer>
   );
