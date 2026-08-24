@@ -19,7 +19,7 @@ const app: App = {
     ENABLE_AUTO_GENERATED_USERNAME: false,
     ENABLE_DYNAMIC_REGISTRATION_FIELDS: true,
     ENABLE_IMAGE_LAYOUT: false,
-    ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN: false,
+    ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN: true,
     FAVICON_URL: 'https://edx-cdn.org/v3/default/favicon.ico',
     INFO_EMAIL: '',
     LOGIN_ISSUE_SUPPORT_LINK: null,
