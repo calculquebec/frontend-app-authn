@@ -17,7 +17,7 @@ const app: App = {
     BANNER_IMAGE_SMALL: '',
     DISABLE_ENTERPRISE_LOGIN: true,
     ENABLE_AUTO_GENERATED_USERNAME: false,
-    ENABLE_DYNAMIC_REGISTRATION_FIELDS: false,
+    ENABLE_DYNAMIC_REGISTRATION_FIELDS: true,
     ENABLE_IMAGE_LAYOUT: false,
     ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN: false,
     FAVICON_URL: 'https://edx-cdn.org/v3/default/favicon.ico',
