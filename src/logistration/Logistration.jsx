@@ -88,7 +88,7 @@ const LogistrationPageInner = ({
   const [key, setKey] = useState('');
   const navigate = useNavigate();
   const disablePublicAccountCreation = useAppConfig().ALLOW_PUBLIC_ACCOUNT_CREATION === false;
-  const hideRegistrationLink = true; //useAppConfig().SHOW_REGISTRATION_LINKS === false;
+  const hideRegistrationLink = useAppConfig().SHOW_REGISTRATION_LINKS === false;
 
   useEffect(() => {
     const authService = getAuthService();

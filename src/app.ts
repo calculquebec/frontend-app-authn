@@ -33,7 +33,7 @@ const app: App = {
     PRIVACY_POLICY: null,
     SEARCH_CATALOG_URL: null,
     SESSION_COOKIE_DOMAIN: 'local.openedx.io',
-    SHOW_REGISTRATION_LINKS: true,
+    SHOW_REGISTRATION_LINKS: false,
     TOS_AND_HONOR_CODE: null,
     TOS_LINK: null,
     USER_RETENTION_COOKIE_NAME: '',
