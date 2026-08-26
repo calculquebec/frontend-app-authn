@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { getCountryList } from '../../data/countries';
 import { FormFieldRenderer } from '../../field-renderer';
 import { FIELDS } from '../data/constants';
+import { normalizeErrorMessage } from '../data/utils';
 import messages from '../messages';
 import { CountryField, HonorCode, TermsOfService } from '../RegistrationFields';
 
