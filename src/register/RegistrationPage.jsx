@@ -146,38 +146,39 @@ const RegistrationPage = (props) => {
     const hasSessionHint = !!getTpaHint();
     const hasLoadedTpaPayload = !!(currentProvider || (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0));
 
-    // If any TPA context is detected, stay on the page and do nothing
+    // 1. If we already have explicit data or hooks loaded, stay on the page
     if (hasUrlHint || hasSessionHint || hasLoadedTpaPayload) {
       return;
     }
 
-    // Check if Open edX's background session check has completed or failed
-    const isNetworkDone = thirdPartyAuthApiStatus === 'COMPLETE' || thirdPartyAuthApiStatus === 'ERROR';
+    // 2. Detect if the user's browser is arriving from an external provider (like CILogon)
+    const referrer = document.referrer || '';
+    const isComingFromTpa = referrer.includes('cilogon.org') || (referrer && !referrer.includes(window.location.hostname));
 
-    // OPTIMIZATION: If the network request finished and there is no TPA data,
-    // execute the redirect instantly without waiting for any timer.
-    if (isNetworkDone) {
+    // 3. INSTANT REDIRECT: If they did NOT come from an external provider,
+    // they are a direct visitor. Kick them to login immediately (0ms delay).
+    if (!isComingFromTpa) {
       window.location.href = '/authn/login';
       return;
     }
 
-    // FALLBACK: If the API status string behaves unexpectedly, trigger a
-    // snappy 150ms timeout safety net so direct visitors aren't stranded.
-    const quickSafetyTimeout = setTimeout(() => {
+    // 4. SAFE BUFFER FOR CILOGON: If they did come from your provider, give the 
+    // network a generous 1500ms to resolve the background /api/mfe_context pipeline.
+    const tpaValidationTimeout = setTimeout(() => {
       const freshQueries = getAllPossibleQueryParams();
       const verifiedContext = !!(
-        currentProvider ||
-        getTpaHint() ||
-        freshQueries.tpa_hint ||
+        currentProvider || 
+        getTpaHint() || 
+        freshQueries.tpa_hint || 
         (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0)
       );
 
       if (!verifiedContext) {
         window.location.href = '/authn/login';
       }
-    }, 150);
+    }, 1500);
 
-    return () => clearTimeout(quickSafetyTimeout);
+    return () => clearTimeout(tpaValidationTimeout);
   }, [currentProvider, pipelineUserDetails, thirdPartyAuthApiStatus]);
 
   // temporary error state for embedded experience because we don't want to show errors on blur
