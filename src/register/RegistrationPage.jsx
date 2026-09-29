@@ -141,33 +141,43 @@ const RegistrationPage = (props) => {
 
   // Redirect to login if a user hits the page directly without an active TPA context
   useEffect(() => {
-    // 1. Gather all indicators that a TPA workflow is present
     const currentQueries = getAllPossibleQueryParams();
     const hasUrlHint = !!(currentQueries.tpa_hint || currentQueries.provider || currentQueries.auth_entry);
     const hasSessionHint = !!getTpaHint();
     const hasLoadedTpaPayload = !!(currentProvider || (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0));
 
-    // 2. Identify if this is a direct visitor with no trace of TPA context
-    if (!hasUrlHint && !hasSessionHint && !hasLoadedTpaPayload) {
-      // If the app is initializing its very first frames, give it a tiny 300ms window
-      // to let the background Redux stores populate the pipeline payload.
-      const directVisitorTimeout = setTimeout(() => {
-        const freshQueries = getAllPossibleQueryParams();
-        const verifiedTpaContext = !!(
-          currentProvider ||
-          getTpaHint() ||
-          freshQueries.tpa_hint ||
-          (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0)
-        );
-
-        // If no TPA context is verified after the initialization window, bounce them.
-        if (!verifiedTpaContext) {
-          window.location.href = '/authn/login';
-        }
-      }, 300);
-
-      return () => clearTimeout(directVisitorTimeout);
+    // If any TPA context is detected, stay on the page and do nothing
+    if (hasUrlHint || hasSessionHint || hasLoadedTpaPayload) {
+      return;
     }
+
+    // Check if Open edX's background session check has completed or failed
+    const isNetworkDone = thirdPartyAuthApiStatus === 'COMPLETE' || thirdPartyAuthApiStatus === 'ERROR';
+
+    // OPTIMIZATION: If the network request finished and there is no TPA data,
+    // execute the redirect instantly without waiting for any timer.
+    if (isNetworkDone) {
+      window.location.href = '/authn/login';
+      return;
+    }
+
+    // FALLBACK: If the API status string behaves unexpectedly, trigger a
+    // snappy 150ms timeout safety net so direct visitors aren't stranded.
+    const quickSafetyTimeout = setTimeout(() => {
+      const freshQueries = getAllPossibleQueryParams();
+      const verifiedContext = !!(
+        currentProvider ||
+        getTpaHint() ||
+        freshQueries.tpa_hint ||
+        (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0)
+      );
+
+      if (!verifiedContext) {
+        window.location.href = '/authn/login';
+      }
+    }, 150);
+
+    return () => clearTimeout(quickSafetyTimeout);
   }, [currentProvider, pipelineUserDetails, thirdPartyAuthApiStatus]);
 
   // temporary error state for embedded experience because we don't want to show errors on blur
