@@ -138,6 +138,38 @@ const RegistrationPage = (props) => {
   const [errors, setErrors] = useState({ ...backedUpFormData.errors });
   const [errorCode, setErrorCode] = useState({ type: '', count: 0 });
   const [formStartTime, setFormStartTime] = useState(null);
+
+  // Redirect to login if a user hits the page directly without an active TPA context
+  useEffect(() => {
+    // 1. Gather all indicators that a TPA workflow is present
+    const currentQueries = getAllPossibleQueryParams();
+    const hasUrlHint = !!(currentQueries.tpa_hint || currentQueries.provider || currentQueries.auth_entry);
+    const hasSessionHint = !!getTpaHint();
+    const hasLoadedTpaPayload = !!(currentProvider || (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0));
+
+    // 2. Identify if this is a direct visitor with no trace of TPA context
+    if (!hasUrlHint && !hasSessionHint && !hasLoadedTpaPayload) {
+      // If the app is initializing its very first frames, give it a tiny 300ms window
+      // to let the background Redux stores populate the pipeline payload.
+      const directVisitorTimeout = setTimeout(() => {
+        const freshQueries = getAllPossibleQueryParams();
+        const verifiedTpaContext = !!(
+          currentProvider ||
+          getTpaHint() ||
+          freshQueries.tpa_hint ||
+          (pipelineUserDetails && Object.keys(pipelineUserDetails).length > 0)
+        );
+
+        // If no TPA context is verified after the initialization window, bounce them.
+        if (!verifiedTpaContext) {
+          window.location.href = '/authn/login';
+        }
+      }, 300);
+
+      return () => clearTimeout(directVisitorTimeout);
+    }
+  }, [currentProvider, pipelineUserDetails, thirdPartyAuthApiStatus]);
+
   // temporary error state for embedded experience because we don't want to show errors on blur
   const [temporaryErrors, setTemporaryErrors] = useState({ ...backedUpFormData.errors });
   const { cta, host } = queryParams;
