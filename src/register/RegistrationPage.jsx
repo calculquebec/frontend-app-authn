@@ -157,10 +157,10 @@ const RegistrationPage = (props) => {
 
     // 3. INSTANT REDIRECT: If they did NOT come from an external provider,
     // they are a direct visitor. Kick them to login immediately (0ms delay).
-    if (!isComingFromTpa) {
-      window.location.href = '/authn/login';
-      return;
-    }
+    //if (!isComingFromTpa) {
+    //  window.location.href = '/authn/login';
+    //  return;
+    //}
 
     // 4. SAFE BUFFER FOR CILOGON: If they did come from your provider, give the 
     // network a generous 1500ms to resolve the background /api/mfe_context pipeline.
